@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class VosjeGedrag implements VriendjeGedrag {
     @Override
     public String positieveReactie() {
@@ -8,4 +11,6 @@ public class VosjeGedrag implements VriendjeGedrag {
     public String willekeurigeReactie() {
         return "We zijn een topteam!";
     }
+    List<String> Reactie = new ArrayList<>();
+
 }

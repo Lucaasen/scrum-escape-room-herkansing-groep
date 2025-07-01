@@ -1,20 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
+        
 public class Game {
     private Speler speler;
     private Scanner scanner = new Scanner(System.in);
     private List<Kamer> kamers = new ArrayList<>();
     private int huidigeIndex = 0;
     private EindCijfer eindCijfer = new EindCijfer();
+    private Vriendje mijnVriendje;
 
     public void start() {
         this.speler = new Speler("Startkamer");
         speler.vraagNaamIn();
         notifyObservers(speler.getNaam() + " heeft het spel gestart.");
         System.out.println("Welkom bij het Scrum Avontuur!");
-        Vriendje mijnVriendje = Vriendje.kiesVriendjeBijStart();
+        this.mijnVriendje = Vriendje.kiesVriendjeBijStart();
 
         this.kamers.add(new SprintPlanningKamer());
         this.kamers.add(new DailyScrumKamer());
@@ -32,7 +33,7 @@ public class Game {
 
     public void Actie() {
         System.out.println("\nWelke actie wil je doen?");
-        System.out.print("beweeg, interacteer, menu, inventaris: ");
+        System.out.print("beweeg, interacteer, menu, praat met vriendje, inventaris: ");
         String actie = scanner.nextLine();
 
         if (actie.equalsIgnoreCase("exit")) {
@@ -91,6 +92,12 @@ public class Game {
             case "inventaris":
                 System.out.println("Je hebt nog geen items.");
                 break;
+            case "praat met vriendje":
+                System.out.println("Je vriendje zegt Hallo.");
+           // heronder komt de random reactie van je vriendje.
+
+           //     System.out.println(mijnVriendje.willekeurigeReactie());
+                break;
             default:
                 System.out.println("Ongeldige actie.");
         }
@@ -108,4 +115,3 @@ public class Game {
         }
     }
 }
-
