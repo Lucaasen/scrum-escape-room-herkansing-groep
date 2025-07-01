@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PetChoice {
+public class vriendjeChoice {
     Scanner scanner = new Scanner(System.in);
 
     public void start(){
