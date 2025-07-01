@@ -11,6 +11,20 @@ public class VosjeGedrag implements VriendjeGedrag {
     public String willekeurigeReactie() {
         return "We zijn een topteam!";
     }
+
+    @Override
+
+    public String bijGoedAntwoord() { return "Wat goed van je! Ik ben trots op je.";
+
+
+    }
     List<String> Reactie = new ArrayList<>();
 
 }
+
+
+
+
+}
+
+
