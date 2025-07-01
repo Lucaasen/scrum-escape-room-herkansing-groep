@@ -1,11 +1,8 @@
 import java.util.Scanner;
 
-public class Pet {
+public class PetChoice {
     Scanner scanner = new Scanner(System.in);
 
-    public Pet(){
-
-    }
     public void start(){
         System.out.print("Welk vriendje wil je?(Vos, Uil, Robot): ");
         String Keuze =  scanner.nextLine();

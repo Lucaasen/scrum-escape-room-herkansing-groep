@@ -14,7 +14,7 @@ public class Game {
         speler.vraagNaamIn();
         notifyObservers(speler.getNaam() + " heeft het spel gestart.");
         System.out.println("Welkom bij het Scrum Avontuur!");
-        Pet pet = new Pet();
+        PetChoice pet = new PetChoice();
         pet.start();
 
         this.kamers.add(new SprintPlanningKamer());
