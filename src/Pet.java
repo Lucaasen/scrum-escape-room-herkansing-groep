@@ -10,14 +10,27 @@ public class Pet {
         System.out.print("Welk vriendje wil je?(Vos, Uil, Robot): ");
         String Keuze =  scanner.nextLine();
         System.out.println("Gekozen: " + Keuze);
+        String naam;
         switch (Keuze.toLowerCase()) {
-            case "Vos":
+            case "vos":
+
+                System.out.print("Welke naam wil je geven aan je vos? ");
+                naam = scanner.nextLine();
+                System.out.println("Je vos heet nu: " + naam);
 
                 break;
-            case "Uil":
+            case "uil":
+
+                System.out.print("Welke naam wil je geven aan je uil? ");
+                naam = scanner.nextLine();
+                System.out.println("Je uil heet nu: " + naam);
 
                 break;
-            case "Robot":
+            case "robot":
+
+                System.out.print("Welke naam wil je geven aan je robot? ");
+                naam = scanner.nextLine();
+                System.out.println("Je robot heet nu: " + naam);
 
                 break;
             default:
