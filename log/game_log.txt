@@ -108,3 +108,6 @@
 [2025-06-30T12:19:35.767490] 1 betreedt kamer: Sprint Review
 [2025-07-01T11:17:05.489487500] yassine heeft het spel gestart.
 [2025-07-01T11:53:20.777722200] jan heeft het spel gestart.
+[2025-07-03T11:08:56.511751400] YASSINE heeft het spel gestart.
+[2025-07-03T11:09:07.250041900] YASSINE betreedt kamer: Sprint Planning
+[2025-07-03T11:09:16.034262800] YASSINE betreedt kamer: Sprint Planning

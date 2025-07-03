@@ -36,6 +36,7 @@ public class Vriendje {
         }
     }
 
+
     public static Vriendje kiesVriendjeBijStart() {
         Scanner scanner = new Scanner(System.in);
 
