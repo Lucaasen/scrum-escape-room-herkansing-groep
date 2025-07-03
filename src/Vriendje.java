@@ -61,5 +61,41 @@ public class Vriendje {
         System.out.println("Je hebt gekozen voor: " + type + " met de naam " + naam + "!");
         return vriendje;
     }
+
+    private int praatTeller = 0;
+    private Stemming stemming = Stemming.NEUTRAAL;
+
+    public void updateStemming(boolean correcteActie, boolean foutGemaakt) {
+        if (correcteActie) {
+            if (stemming == Stemming.BEZORGD) {
+                stemming = Stemming.NEUTRAAL;
+            } else {
+                stemming = Stemming.BLIJ;
+            }
+        } else if (foutGemaakt) {
+            if (stemming == Stemming.BLIJ) {
+                stemming = Stemming.NEUTRAAL;
+            } else {
+                stemming = Stemming.BEZORGD;
+            }
+        }
+    }
+
+    public void toonStemming() {
+        switch (stemming) {
+            case BLIJ -> System.out.println("[" + naam + "] Ik ben blij, je doet het goed.");
+            case BEZORGD -> System.out.println("[" + naam + "] Ik maak me een beetje zorgen om je.");
+            case NEUTRAAL -> System.out.println("[" + naam + "] Ik ben er voor je!");
+        }
+    }
+
+    public void praatMetVriendje() {
+        praatTeller++;
+        if (praatTeller >= 5) {
+            System.out.println("[" + naam + "] We praten echt vaak. Vind ik leuk.");
+        } else {
+            System.out.println(willekeurigeReactie());
+        }
+    }
 }
 

@@ -29,11 +29,11 @@ public class Game {
         Kamer kamer = kamers.get(huidigeIndex);
         notifyObservers(speler.getNaam() + " betreedt kamer: " + kamer.getNaam());
     }
-    }
+}
 
     public void Actie() {
         System.out.println("\nWelke actie wil je doen?");
-        System.out.print("beweeg, interacteer, menu, praat met vriendje, inventaris: ");
+        System.out.print("beweeg, interacteer, menu, praat met vriendje, toon stemming, inventaris: ");
         String actie = scanner.nextLine();
 
         if (actie.equalsIgnoreCase("exit")) {
@@ -47,61 +47,70 @@ public class Game {
     }
 
     public void verwerkActie(String actie) {
-        Kamer kamer = kamers.get(huidigeIndex);
-        switch (actie.toLowerCase()) {
-            case "beweeg":
+    Kamer kamer = kamers.get(huidigeIndex);
 
-                ActieObserver.registreerActie(); //<--
-                System.out.println("Je bent in: " + kamer.getClass().getSimpleName());
-                System.out.print("Typ 'v' (vorige) of 'n' (volgende): ");
-                String keuze = scanner.nextLine();
+    switch (actie.toLowerCase()) {
+        case "beweeg":
+            ActieObserver.registreerActie();
+            System.out.println("Je bent in: " + kamer.getClass().getSimpleName());
+            System.out.print("Typ 'v' (vorige) of 'n' (volgende): ");
+            String keuze = scanner.nextLine();
 
-                if (keuze.equals("v") && huidigeIndex > 0) {
-                    huidigeIndex--;
-                } else if (keuze.equals("n")) {
-                    if (kamer.isOpdrachtVoltooid()) {
-                        if (huidigeIndex < kamers.size() - 1) huidigeIndex++;
-                        else System.out.println("Laatste kamer bereikt.");
-                    } else {
-                        System.out.println("Eerst opdracht voltooien!");
-                    }
+            if (keuze.equals("v") && huidigeIndex > 0) {
+                huidigeIndex--;
+            } else if (keuze.equals("n")) {
+                if (kamer.isOpdrachtVoltooid()) {
+                    if (huidigeIndex < kamers.size() - 1) huidigeIndex++;
+                    else System.out.println("Laatste kamer bereikt.");
                 } else {
-                    System.out.println("Ongeldige keuze of al aan het begin.");
+                    System.out.println("Eerst opdracht voltooien!");
                 }
+            } else {
+                System.out.println("Ongeldige keuze of al aan het begin.");
+            }
 
-                speler.setLocatie(kamers.get(huidigeIndex).getClass().getSimpleName());
-                break;
-            case "interacteer":
-//                Kamer kamer = kamers.get(huidigeIndex);
-                ActieObserver.registreerActie(); //<--
-                kamer.voerOpdrachtUit(speler);
+            speler.setLocatie(kamers.get(huidigeIndex).getClass().getSimpleName());
+            break;
 
-                boolean spelEinde = (huidigeIndex == kamers.size() -1);
+        case "interacteer":
+            ActieObserver.registreerActie();
+            kamer.voerOpdrachtUit(speler);
+            
+            if (kamer.wasLaatsteAntwoordJuist()) {
+                mijnVriendje.updateStemming(true, false);
+            } else {
+                mijnVriendje.updateStemming(false, true);
+            }
 
-                if((kamer.isOpdrachtVoltooid()) && spelEinde) {
-                    Cijfermanager manager = new Cijfermanager();
-                    manager.setExamObserversUpdate();
-                    manager.setCijferUpdate("Speler " + speler.getNaam() + " heeft het spel voltooid.");
-                    manager.geefRapport(speler);
-                }
-//                huidigeIndex++;
-                break;
-            case "menu":
-                System.out.println("Toon menu-opties...");
-                break;
-            case "inventaris":
-                System.out.println("Je hebt nog geen items.");
-                break;
-            case "praat met vriendje":
-                System.out.println("Je vriendje zegt Hallo.");
-           // heronder komt de random reactie van je vriendje.
+            boolean spelEinde = (huidigeIndex == kamers.size() - 1);
+            if (kamer.isOpdrachtVoltooid() && spelEinde) {
+                Cijfermanager manager = new Cijfermanager();
+                manager.setExamObserversUpdate();
+                manager.setCijferUpdate("Speler " + speler.getNaam() + " heeft het spel voltooid.");
+                manager.geefRapport(speler);
+            }
+        break;
 
-           //     System.out.println(mijnVriendje.willekeurigeReactie());
-                break;
-            default:
-                System.out.println("Ongeldige actie.");
-        }
+        case "menu":
+            System.out.println("Toon menu-opties...");
+            break;
+
+        case "inventaris":
+            System.out.println("Je hebt nog geen items.");
+        break;
+        
+        case "praat met vriendje":
+            mijnVriendje.praatMetVriendje();
+            break;
+
+        case "toon stemming":
+            mijnVriendje.toonStemming();
+        break;
+
+        default:
+            System.out.println("Ongeldige actie.");
     }
+}
 
     private List<SpelEventObserver> observers = new ArrayList<>();
 

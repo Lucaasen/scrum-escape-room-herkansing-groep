@@ -49,5 +49,4 @@ public class DailyScrumKamer extends Kamer {
     protected void geefFeedback(Speler speler) {
         System.out.println("De Daily Scrum helpt om iedereen op dezelfde lijn te houden.");
     }
-
 }
