@@ -14,7 +14,8 @@ public class VosjeGedrag implements VriendjeGedrag {
 
     @Override
 
-    public String bijGoedAntwoord() { return "Wat goed van je! Ik ben trots op je.";
+    public String bijGoedAntwoord()
+    { return "Wat goed van je! Ik ben trots op je.";
 
 
     }
@@ -25,6 +26,6 @@ public class VosjeGedrag implements VriendjeGedrag {
 
 
 
-}
+
 
 
