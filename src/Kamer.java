@@ -6,7 +6,9 @@ abstract class Kamer {
     protected String beschrijving;
     private boolean voltooid = false;
     protected OpdrachtStrategie strategie;
+    private boolean laatsteAntwoordJuist = false;
     private List<SpelEventObserver> observers = new ArrayList<>();
+
 
     public void addObserver(SpelEventObserver observer) {
         observers.add(observer);
@@ -29,19 +31,22 @@ abstract class Kamer {
         if (!voltooid) {
             toonIntroductie(speler);
             presenteerUitdaging(speler);
-            if (valideerAntwoord(speler)) {
-                toonResultaat(speler);
-                geefFeedback(speler);
-                voltooid = true;
-                setOpdrachtVoltooid(true);
-                notifyObservers(speler.getNaam() + " heeft de kamer succesvol voltooid: " + naam);
-            } else {
-                System.out.println("Probeer het opnieuw...");
-            }
+
+            laatsteAntwoordJuist = valideerAntwoord(speler);
+
+        if (laatsteAntwoordJuist) {
+            toonResultaat(speler);
+            geefFeedback(speler);
+            voltooid = true;
+            setOpdrachtVoltooid(true);
+            notifyObservers(speler.getNaam() + " heeft de kamer succesvol voltooid: " + naam);
         } else {
-            System.out.println("Je hebt deze kamer al voltooid.");
+            System.out.println("Probeer het opnieuw...");
         }
+    } else {
+        System.out.println("Je hebt deze kamer al voltooid.");
     }
+}
 
     public boolean isVoltooid() {
         return voltooid;
@@ -63,6 +68,10 @@ abstract class Kamer {
 
     public void setOpdrachtVoltooid(boolean voltooid) {
         this.opdrachtVoltooid = voltooid;
+    }
+
+    public boolean wasLaatsteAntwoordJuist() {
+    return laatsteAntwoordJuist;
     }
 
     protected abstract void toonIntroductie(Speler speler);

@@ -8,4 +8,11 @@ public class UilGedrag implements VriendjeGedrag {
     public String willekeurigeReactie() {
         return "Samen komen we er wel!";
     }
+
+    @Override
+
+    public String bijGoedAntwoord() { return "Wat goed van je! Ik ben trots op je.";
+
+
+    }
 }
