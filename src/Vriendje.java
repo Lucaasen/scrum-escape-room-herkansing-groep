@@ -3,16 +3,20 @@ import java.util.Scanner;
 public class Vriendje {
     private String naam;
     private VriendjeGedrag gedrag;
+    private Dagritueel dagritueel;
 
-    public Vriendje(String naam, VriendjeGedrag gedrag) {
+    public Vriendje(String naam, VriendjeGedrag gedrag, Dagritueel dagritueel) {
         this.naam = naam;
         this.gedrag = gedrag;
+        this.dagritueel = dagritueel;
     }
 
     public String getNaam() {
         return naam;
     }
-
+public void doeDagstart(){
+        dagritueel.startDag();
+}
     public String positieveReactie() {
         return "[" + naam + "] " + gedrag.positieveReactie();
     }
@@ -24,14 +28,14 @@ public class Vriendje {
     public static Vriendje maakVriendje(String type, String naam) {
         switch (type.toLowerCase()) {
             case "vosje":
-                return new Vriendje(naam, new VosjeGedrag());
+                return new Vriendje(naam, new VosjeGedrag(), new DagritueelTypeA_vos());
             case "uil":
-                return new Vriendje(naam, new UilGedrag());
+                return new Vriendje(naam, new UilGedrag(), new DagritueellTypeB_uil());
             case "robot":
-                return new Vriendje(naam, new RobotGedrag());
+                return new Vriendje(naam, new RobotGedrag(), new DagritueelTypeC_robot());
             default:
                 System.out.println("Onbekend type, standaard kiezen we een Vosje.");
-                return new Vriendje(naam, new VosjeGedrag());
+                return new Vriendje(naam, new VosjeGedrag(), new DagritueelTypeA_vos());
         }
     }
 

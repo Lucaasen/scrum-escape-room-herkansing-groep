@@ -111,3 +111,6 @@
 [2025-07-03T11:08:56.511751400] YASSINE heeft het spel gestart.
 [2025-07-03T11:09:07.250041900] YASSINE betreedt kamer: Sprint Planning
 [2025-07-03T11:09:16.034262800] YASSINE betreedt kamer: Sprint Planning
+[2025-07-04T12:01:23.849397300] jan heeft het spel gestart.
+[2025-07-04T12:12:35.599088] jan heeft het spel gestart.
+[2025-07-04T12:12:48.197507700] jan betreedt kamer: Sprint Planning
