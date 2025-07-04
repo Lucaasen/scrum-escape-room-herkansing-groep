@@ -3,35 +3,39 @@ import java.util.Scanner;
 public class Vriendje {
     private String naam;
     private VriendjeGedrag gedrag;
+    private Persoonlijkheidstype persoonlijkheid;
 
-    public Vriendje(String naam, VriendjeGedrag gedrag) {
+    public Vriendje(String naam, VriendjeGedrag gedrag, Persoonlijkheidstype persoonlijkheid) {
         this.naam = naam;
         this.gedrag = gedrag;
+        this.persoonlijkheid = persoonlijkheid;
     }
 
     public String getNaam() {
         return naam;
     }
 
-    public String positieveReactie() {
-        return "[" + naam + "] " + gedrag.positieveReactie();
+    public String willekeurigeReactie() {
+        String basis = gedrag.willekeurigeReactie();
+        return "[" + naam + "] " + persoonlijkheid.verwerkReactie(basis);
     }
 
-    public String willekeurigeReactie() {
-        return "[" + naam + "] " + gedrag.willekeurigeReactie();
+    public String positieveReactie() {
+        String basis = gedrag.positieveReactie();
+        return "[" + naam + "] " + persoonlijkheid.verwerkReactie(basis);
     }
 
     public static Vriendje maakVriendje(String type, String naam) {
         switch (type.toLowerCase()) {
             case "vosje":
-                return new Vriendje(naam, new VosjeGedrag());
+                return new Vriendje(naam, new VosjeGedrag(), new VrolijkPersoonlijkheid());
             case "uil":
-                return new Vriendje(naam, new UilGedrag());
+                return new Vriendje(naam, new UilGedrag(), new SerieusPersoonlijkheid());
             case "robot":
-                return new Vriendje(naam, new RobotGedrag());
+                return new Vriendje(naam, new RobotGedrag(), new SarcastischPersoonlijkheid());
             default:
                 System.out.println("Onbekend type, standaard kiezen we een Vosje.");
-                return new Vriendje(naam, new VosjeGedrag());
+                return new Vriendje(naam, new VosjeGedrag(), new VrolijkPersoonlijkheid());
         }
     }
 

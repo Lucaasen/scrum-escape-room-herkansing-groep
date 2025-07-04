@@ -108,3 +108,15 @@
 [2025-06-30T12:19:35.767490] 1 betreedt kamer: Sprint Review
 [2025-07-01T11:17:05.489487500] yassine heeft het spel gestart.
 [2025-07-01T11:53:20.777722200] jan heeft het spel gestart.
+[2025-07-03T11:57:23.649340] Lucas heeft het spel gestart.
+[2025-07-03T11:57:42.617298] Lucas betreedt kamer: Sprint Planning
+[2025-07-03T11:57:47.732825800] Lucas heeft de spel afgesloten.
+[2025-07-03T12:34:17.835667500]   heeft het spel gestart.
+[2025-07-03T12:35:09.405455900]   betreedt kamer: Sprint Planning
+[2025-07-03T12:36:22.428433500] ♀ heeft het spel gestart.
+[2025-07-03T12:37:19.475208200] ♀ betreedt kamer: Sprint Planning
+[2025-07-04T11:57:37.392806800] Lucas heeft het spel gestart.
+[2025-07-04T11:58:17.983618900] Lucas betreedt kamer: Sprint Planning
+[2025-07-04T11:58:23.935607700] Lucas betreedt kamer: Sprint Planning
+[2025-07-04T11:59:12.069372500] Lucas betreedt kamer: Sprint Planning
+[2025-07-04T12:13:08.547946900] Lucas heeft de spel afgesloten.
