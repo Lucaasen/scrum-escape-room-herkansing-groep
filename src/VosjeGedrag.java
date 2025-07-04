@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class VosjeGedrag implements VriendjeGedrag {
     @Override
@@ -9,7 +9,14 @@ public class VosjeGedrag implements VriendjeGedrag {
 
     @Override
     public String willekeurigeReactie() {
-        return "We zijn een topteam!";
+        List<String> ReactieVos = List.of(
+                "Hoi, wat heb je nodig?",
+                "Goedemorgen. Waar gaan we het over hebben?",
+                "Hallo. Wat is het plan?",
+                "He, zeg het maar.",
+                "Dag. Wat kan ik voor je doen?"
+        );
+        return ReactieVos.get(new Random().nextInt(ReactieVos.size()));
     }
 
     @Override
@@ -19,8 +26,6 @@ public class VosjeGedrag implements VriendjeGedrag {
 
 
     }
-    List<String> Reactie = new ArrayList<>();
-
 }
 
 
