@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.Random;
+
 public class RobotGedrag implements VriendjeGedrag {
     @Override
     public String positieveReactie() {
@@ -6,7 +9,14 @@ public class RobotGedrag implements VriendjeGedrag {
 
     @Override
     public String willekeurigeReactie() {
-        return "Teamwork: 100% functioneel en efficient.";
+        List<String> ReactieRobot = List.of(
+                "Systeem opgestart. Klaar voor de volgende taak?",
+                "Ingelogd en gereed. Wat is de eerste stap?",
+                "Routine begonnen. Instructies graag.",
+                "Status: beschikbaar. Wat moet er gebeuren?",
+                "Actief. Wacht op input."
+        );
+        return ReactieRobot.get(new Random().nextInt(ReactieRobot.size()));
     }
 
     @Override

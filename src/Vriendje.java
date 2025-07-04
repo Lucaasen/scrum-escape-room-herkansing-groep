@@ -24,7 +24,6 @@ public class Vriendje {
     public static Vriendje maakVriendje(String type, String naam) {
         switch (type.toLowerCase()) {
             case "vosje":
-            case "vos":
                 return new Vriendje(naam, new VosjeGedrag());
             case "uil":
                 return new Vriendje(naam, new UilGedrag());

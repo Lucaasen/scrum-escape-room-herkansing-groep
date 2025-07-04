@@ -29,7 +29,7 @@ public class Game {
         Kamer kamer = kamers.get(huidigeIndex);
         notifyObservers(speler.getNaam() + " betreedt kamer: " + kamer.getNaam());
     }
-}
+    }
 
     public void Actie() {
         System.out.println("\nWelke actie wil je doen?");
@@ -75,7 +75,7 @@ public class Game {
         case "interacteer":
             ActieObserver.registreerActie();
             kamer.voerOpdrachtUit(speler);
-            
+
             if (kamer.wasLaatsteAntwoordJuist()) {
                 mijnVriendje.updateStemming(true, false);
             } else {
@@ -98,9 +98,9 @@ public class Game {
         case "inventaris":
             System.out.println("Je hebt nog geen items.");
         break;
-        
+
         case "praat met vriendje":
-            mijnVriendje.praatMetVriendje();
+            System.out.println(mijnVriendje.willekeurigeReactie());
             break;
 
         case "toon stemming":
