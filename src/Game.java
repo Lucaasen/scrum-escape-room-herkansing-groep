@@ -16,6 +16,7 @@ public class Game {
         notifyObservers(speler.getNaam() + " heeft het spel gestart.");
         System.out.println("Welkom bij het Scrum Avontuur!");
         this.mijnVriendje = Vriendje.kiesVriendjeBijStart();
+        this.mijnVriendje.doeDagstart();
 
         this.kamers.add(new SprintPlanningKamer());
         this.kamers.add(new DailyScrumKamer());

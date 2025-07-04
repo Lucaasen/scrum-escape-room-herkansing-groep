@@ -4,16 +4,21 @@ public class Vriendje {
     private String naam;
     private VriendjeGedrag gedrag;
     private Persoonlijkheidstype persoonlijkheid;
+    private Dagritueel dagritueel;
 
-    public Vriendje(String naam, VriendjeGedrag gedrag, Persoonlijkheidstype persoonlijkheid) {
+    public Vriendje(String naam, VriendjeGedrag gedrag, Persoonlijkheidstype persoonlijkheid, Dagritueel dagritueel) {
         this.naam = naam;
         this.gedrag = gedrag;
         this.persoonlijkheid = persoonlijkheid;
+        this.dagritueel = dagritueel;
     }
 
     public String getNaam() {
         return naam;
     }
+public void doeDagstart(){
+        dagritueel.startDag();
+}
 
     public String willekeurigeReactie() {
         String basis = gedrag.willekeurigeReactie();
@@ -28,16 +33,17 @@ public class Vriendje {
     public static Vriendje maakVriendje(String type, String naam) {
         switch (type.toLowerCase()) {
             case "vosje":
-                return new Vriendje(naam, new VosjeGedrag(), new VrolijkPersoonlijkheid());
+                return new Vriendje(naam, new VosjeGedrag(), new VrolijkPersoonlijkheid(), new DagritueelTypeA_vos());
             case "uil":
-                return new Vriendje(naam, new UilGedrag(), new SerieusPersoonlijkheid());
+                return new Vriendje(naam, new UilGedrag(), new SerieusPersoonlijkheid(), new DagritueellTypeB_uil());
             case "robot":
-                return new Vriendje(naam, new RobotGedrag(), new SarcastischPersoonlijkheid());
+                return new Vriendje(naam, new RobotGedrag(), new SarcastischPersoonlijkheid(), new DagritueelTypeC_robot());
             default:
                 System.out.println("Onbekend type, standaard kiezen we een Vosje.");
-                return new Vriendje(naam, new VosjeGedrag(), new VrolijkPersoonlijkheid());
+                return new Vriendje(naam, new VosjeGedrag(), new VrolijkPersoonlijkheid(), new DagritueelTypeA_vos());
         }
     }
+
 
     public static Vriendje kiesVriendjeBijStart() {
         Scanner scanner = new Scanner(System.in);
